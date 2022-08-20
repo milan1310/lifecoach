@@ -1,0 +1,40 @@
+<%- include('./partials/header') %> <%- include('./partials/cdn') %>
+
+<div class="container-fluid">
+  <div class="row text-center instruction">
+    <div class="col">
+      <h1 class="step title-font">Step 1</h1>
+      <p class="step-info fs-4">
+        Answer each question <br />
+        Choose one of the two options.
+      </p>
+      <img src="/images/step1.svg" class="mt-5 step-img" alt="" />
+    </div>
+    <div class="col">
+      <h1 class="step title-font">Step 2</h1>
+      <p class="step-info fs-4">
+        You will get two emails <br />
+        One on successful completion of the Assessment, <br />
+        Second with your Personality Report.
+      </p>
+      <img src="/images/step2.svg" class="mt-4 step-img" alt="" />
+    </div>
+    <div class="col">
+      <h1 class="step title-font">Step 3</h1>
+      <p class="step-info fs-4">
+        Schedule a 30 minute free Discovery Call with me <br />
+        You will receive a link in the email.
+      </p><br>
+      <img src="/images/step3.svg" class="mt-4 step-img" alt="" />
+    </div>
+  </div>
+  <div class="d-grid col col-sm-3 mx-auto my-5">
+    <button class="btn btn-test" type="button">
+      <a href="/test/<%= UUID %>" class="test-link fs-3"
+        >Start the Personality Assessment</a
+      >
+    </button>
+  </div>
+</div>
+</body>
+</html>

@@ -1,0 +1,60 @@
+<%- include('../../partials/header') %> <%- include('../../partials/cdn') %>
+<div class="container-fluid">
+    <!-- Wheel of Life Result -->
+        <% if(user.tag === 'wol'){ %>
+    <div>
+        <!-- chart Start -->
+            <div class="text-center">
+                <h2>Result : CLife Mastery Circle</h2>
+                <h2><%= user.name %></h2>
+                <h2><%= user.email %></h2>
+            <hr>
+    </div>
+        <% if(user.wheelOfLife.length === 0){ %>
+            <h1 class="text-center my-3">No data available for theLife Mastery Circle</h1>
+        <% }else{ %>
+            <div class="chart mt-5">
+                <input type="text" hidden id="uuid" value="<%= user.uuid %>">
+                <canvas id="myChart"></canvas>
+            </div>
+            <hr>
+    <div class="text-center" id="ranks"></div>
+        <%}%>
+    <!-- char end -->
+    </div>
+    <%}%>
+<!-- end WOL -->
+
+<!-- Basellines Result -->
+<% if(user.tag === 'baseline'){ %>
+<div>
+    <div class="text-center">
+        <h2>Result : Core Values</h2>
+        <h2><%= user.name %></h2>
+        <h2><%= user.email %></h2>
+    <hr>
+    <% if(user.baselines.length === 0){ %>
+        <h2 class="text-center">No data submitted for Core Values</h2>
+      <% }else{ %>
+    <div id="baseline-ningth-container container" style="display: block;">
+        <div id="baseline-ningth">
+        <% user.baselines[0].forEach((data,i) => { %>
+          <li class="baseline_word fs-3"><%=  i+ 1 %>.  <%= data %></li>
+         <% }); %> 
+        </div>
+</div>
+<%}%>
+<%}%>
+<!-- Basellines Result END -->
+
+
+    <div>
+        <a class="text-center d-block fs-3 mb-3" href="/admin/tools">← Go Back</a>
+    </div>
+</div>
+
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/3.5.1/chart.min.js" integrity="sha512-Wt1bJGtlnMtGP0dqNFH1xlkLBNpEodaiQ8ZN5JLA5wpc1sUlk/O5uuOMNgvzddzkpvZ9GLyYNa8w2s7rqiTk5Q==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+<script src="/assets/js/tools/putchart.js"></script>
+</body>
+</html>

@@ -1,0 +1,157 @@
+<%- include('./partials/header') %>
+    <%- include('./partials/cdn') %>
+        <div class="container-fluid roboto">
+            <div class="row fs-5">
+                <%- include('partials/admin-nav') %>
+                <div class="col-sm p-3 min-vh-100">
+                    <nav>
+                      <div class="nav nav-tabs" id="nav-tab" role="tablist">
+                        <button
+                          class="nav-link active"
+                          id="nav-home-tab"
+                          data-bs-toggle="tab"
+                          data-bs-target="#nav-home"
+                          type="button"
+                          role="tab"
+                          aria-controls="nav-home"
+                          aria-selected="true"
+                        >
+                          Pending
+                        </button>
+                        <button
+                          class="nav-link"
+                          id="nav-profile-tab"
+                          data-bs-toggle="tab"
+                          data-bs-target="#nav-profile"
+                          type="button"
+                          role="tab"
+                          aria-controls="nav-profile"
+                          aria-selected="false"
+                        >
+                          Done
+                        </button>
+                      </div>
+                    </nav>
+
+                    <div class="tab-content" id="nav-tabContent">
+                        <div class="tab-pane fade show active" id="nav-home" role="tabpanel"
+                            aria-labelledby="nav-home-tab">
+                            <table class="table">
+                                <thead class="table-light" id="pending-tab" role="tabpanel" aria-labelledby="Pending">
+                                    <tr>
+                                        <th scope="col">#</th>
+                                        <th scope="col">Country</th>
+                                        <th scope="col">Name</th>
+                                        <th scope="col">Email</th>
+                                        <th scope="col">Number</th>
+                                        <th scope="col">Test data</th>
+                                        <th scope="col">Report sent</th>
+                                        <th scope="col">Personality Type</th>
+                                    </tr>
+                                </thead>
+                                <% users.forEach(user=> { %>
+                                    <% if(!user.submited) { %>
+                                        <tr>
+                                            <td scope="col">#</td>
+                                            <td scope="col">
+                                                <%= user.region %>
+                                            </td>
+                                            <td scope="col">
+                                                <%= user.name %>
+                                            </td>
+                                            <td scope="col">
+                                               <a href="mailto:<%=user.mail%>"> <%= user.email %></a>
+                                            </td>
+                                            <td scope="col">
+                                               <a href="tel:+<%= user.mobileNumber %>"><%= user.mobileNumber %></a> 
+                                            </td>
+                                            <td scope="col">
+                                                <a href="admin/viewTest/<%= user._id %>"
+                                                    class="link">view answer</a>
+                                                </td>
+                                            <td scope="col">
+                                                <form action="admin/submit" method="post">
+                                                    <input type="checkbox" name="checkbox" value="<%= user._id %>"
+                                                        onChange="this.form.submit()">
+                                                </form>
+                                            </td>
+                                            <td scope="col">
+                                                <% if(user.personalityType === "") { %>
+                                                <form action="admin/personalitytype" method="post">
+                                                      <select class="selectpicker" data-style="btn-info" name="selectpicker">
+                                                        <optgroup label="Select Table">
+                                                          <option name="table1" value="Achiever">Achiever</option>
+                                                          <option name="table2" value="Peacemaker">Peacemaker</option>
+                                                          <option name="table3" value="Helper">Helper</option>
+                                                          <option name="table3" value="Sentinel">Sentinel</option>
+                                                          <option name="table3" value="Reformer">Reformer</option>
+                                                          <option name="table3" value="Individualist">Individualist</option>
+                                                          <option name="table3" value="Challenger">Challenger</option>
+                                                          <option name="table3" value="Enthusiast">Enthusiast</option>
+                                                          <option name="table3" value="Investigator">Investigator</option>
+                                                        </optgroup>
+                                                    </select>
+                                                    <button name="id" class="btn btn-sm btn-info" value="<%= user._id %>">Submit</button>
+                                                </form>
+                                                <% } else { %>
+                                                    <%= user.personalityType %>
+                                                <% } %>    
+                                            </td>
+                                        </tr>
+                                        <% } %>
+                                            <% }); %>
+                            </table>
+                        </div>
+                        <div class="tab-pane fade" id="nav-profile" role="tabpanel" aria-labelledby="nav-profile-tab">
+                            <table class="table">
+                                <tbody>
+                                    <thead class="table-light" id="pending-tab" role="tabpanel"
+                                        aria-labelledby="Pending">
+                                        <tr>
+                                            <th scope="col">#</th>
+                                            <th scope="col">Name</th>
+                                            <th scope="col">Email</th>
+                                            <th scope="col">Number</th>
+                                            <th scope="col">Test data</th>
+                                            <th scope="col">Report Not sent</th>
+                                            <th scope="col">Personality Type</th>
+                                        </tr>
+                                    </thead>
+                                    <% users.forEach(user=> { %>
+                                        <% if(user.submited) { %>
+                                            <tr>
+                                                <td scope="col">#</td>
+                                                <td scope="col">
+                                                    <%= user.name %>
+                                                </td>
+                                                <td scope="col">
+                                                    <%= user.email %>
+                                                </td>
+                                                <td scope="col">
+                                                    <%= user.mobileNumber %>
+                                                </td>
+                                                <td scope="col">
+                                                    <a href="admin/viewTest/<%= user._id %>" class="link">View answer</a>
+                                                </td>
+                                                <td scope="col">
+                                                    <form action="admin/unsubmit" method="post">
+                                                        <input type="checkbox" name="checkbox" value="<%= user._id %>"
+                                                            onChange="this.form.submit()">
+                                                    </form>
+                                                </td>
+                                                <td scope="col">
+                                                    <%= user.personalityType %>
+                                                </td>
+                                            </tr>
+                                            <% } %>
+                                                <% }); %>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                    </table>
+                </div>
+            </div>
+        </div>
+</body>
+</html>

@@ -1,0 +1,43 @@
+<%- include('../../partials/header') %> <%- include('../../partials/cdn') %>
+<div class="container-fluid roboto">
+    <!-- n-codes e-codes -->
+<% if(user.tag === "necodes"){ %>
+    <div>
+        <div class="text-center">
+            <h2>Result : N Patterns/E Patterns</h2>
+            <h2><%= user.name %></h2>
+            <h2><%= user.email %></h2>
+        <hr>
+        </div>
+        <% if(user.necodes.length === 0){ %>
+            <h1>No data available for N Patterns/E Patterns</h1>
+            <% }else{ %>
+              <div class="row">
+                  <div class="col-1">#</div>
+                  <div class="col-5 text-center fw-bold">N Patterns</div>
+                  <div class="col-5 text-center fw-bold">E Patterns</div>
+              </div><hr>
+              <div class="row fs-4">
+              <% user.necodes[0].forEach(data => { %>
+                    <div class="col-1">#</div>
+                    <div class="col-5"><%= data.n_code %></div>
+                    <div class="col-5"><%= data.e_code %></div><hr>
+                    <% }) %>
+                  </div>
+                  <%}%>
+                </div>
+        <%}%>
+
+<!-- e-codes end -->
+
+
+    <div>
+        <a class="text-center d-block fs-3 mb-3" href="/admin/tools">← Go Back</a>
+    </div>
+</div>
+
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/3.5.1/chart.min.js" integrity="sha512-Wt1bJGtlnMtGP0dqNFH1xlkLBNpEodaiQ8ZN5JLA5wpc1sUlk/O5uuOMNgvzddzkpvZ9GLyYNa8w2s7rqiTk5Q==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+<script src="/assets/js/tools/putchart.js"></script>
+</body>
+</html>

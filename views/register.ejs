@@ -1,0 +1,70 @@
+<%- include('./partials/header') %> <%- include('./partials/cdn') %>
+
+<link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/intl-tel-input/17.0.15/css/intlTelInput.css"
+      integrity="sha512-gxWow8Mo6q6pLa1XH/CcH8JyiSDEtiwJV78E+D+QP0EVasFs8wKXq16G8CLD4CJ2SnonHr4Lm/yY2fSI2+cbmw=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+    <script
+      src="https://cdnjs.cloudflare.com/ajax/libs/intl-tel-input/17.0.15/js/intlTelInput.min.js"
+      integrity="sha512-L3moecKIMM1UtlzYZdiGlge2+bugLObEFLOFscaltlJ82y0my6mTUugiz6fQiSc5MaS7Ce0idFJzabEAl43XHg=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    ></script>
+
+
+<div class="bg-reg">
+  <div class="container">
+    <div class="row">
+      <div class="registration col-sm-12 col-md-12 col-lg-4 fs-3">
+        <form method="POST" action="/register/user">
+          <input
+            type="text"
+            name="name"
+            class="form-control input"
+            placeholder="Name"
+            required
+          />
+          <input
+            type="email"
+            name="email"
+            class="form-control input"
+            pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,3}$"
+            placeholder="name@example.com"
+            required
+          />
+          <!-- <small class="form-text fs-4">Email must be in lower case and in right formate.</small> -->
+          <input
+            type="tel"
+            id="phone"
+            name=""
+            class="form-control input mb-2"
+            style="padding-left:auto;"
+            placeholder="Your Mobile Number"
+            required
+          />
+          <div class="mb-3"></div>
+          <input type="tel" name="number" class="d-none" id="number">
+          <input type="text" name="region" class="d-none" id="region">
+          <button class="btn btn-submit">Link to Personality Assessment</button>
+        </form>
+      </div>
+      <div class="col-sm-12 col-md-12 col-lg-7 text-center info-tex">
+        <h1 class="">
+          Eliminate Stress and unleash your Inner Power <br />
+          Unlock your true potential <br />
+          and blossom into your true self
+        </h1>
+        <p class="fs-3">
+          Complete this free Personality Assessment and take the first step on
+          your journey to unleashing the real you.
+        </p>
+      </div>
+    </div>
+  </div>
+</div>
+
+<script src="assets/js/verifyphone.js"></script>
+<%- include('./partials/footer') %>

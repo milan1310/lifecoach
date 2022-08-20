@@ -1,0 +1,7 @@
+/neeruji.zip
+/.env
+/node_modules
+/deploy.yml
+/package-lock.json
+/signup.http
+/.DS_Store

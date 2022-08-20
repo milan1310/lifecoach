@@ -1,0 +1,38 @@
+<div class="subscribe p-3 fs-3">
+  <p class="text-center fs-2">Signup for my free Newsletter.</p>
+  <form class="row g-3 mt-1" action="/subscribe" method="POST">
+      <div class="col-6">
+        <label for="" class="visually-hidden">Name</label>
+        <input type="text" name="name" class="form-control fs-4" id="" placeholder="Name" />
+      </div>
+      <div class="col-6">
+        <label for="" class="visually-hidden">Email</label>
+        <input
+          type="email"
+          class="form-control fs-4"
+          id=""
+          pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,3}$"
+          name="email"
+          placeholder="Email"
+          required
+        />
+      </div>
+      <div class="col">
+        <label for="" class="visually-hidden">Mobile number</label>
+        <input
+            type="tel"
+            id="phone"
+            name=""
+            class="form-control input mb-2 fs-4"
+            style="padding-left:auto;"
+            placeholder="Your Mobile Number"
+            required
+          />
+        <input type="tel" name="tel" class="d-none" id="number">
+          <input type="text" name="region" class="d-none" id="region">
+      </div>
+      <div class="col-12">
+        <button type="submit"  class="btn btn-bg-light fs-4">Click to join</button>
+      </div>
+    </form>
+</div>

@@ -1,0 +1,42 @@
+<form method="POST" action="/contact">
+  <div class="row">
+    <h2 class="fw-bold my-3">Contact Me...</h2>
+    <div class="col">
+      <div class="mb-3">
+        <label for="name" class="form-label fs-3">Name</label>
+        <input
+          type="Name"
+          class="form-control fs-4"
+          id="exampleInputPassword1"
+          placeholder="Your Name"
+          name="name"
+          required
+        />
+      </div>
+    </div>
+    <div class="col">
+      <div class="mb-3">
+        <label for="email" class="form-label fs-3">Email address</label>
+        <input
+          type="email"
+          class="form-control fs-4"
+          id="exampleInputEmail1"
+          aria-describedby="emailHelp"
+          placeholder="Your email address"
+          pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,3}$"
+          name="email"
+          required
+        />
+        <div id="emailHelp" class="form-text fs-4">
+          We'll never share your email with anyone else.
+        </div>
+      </div>
+    </div>
+  </div>
+    <div class="mb-3">
+        <label for="message" class="form-label fs-3">Message</label>
+        <textarea name="message" class="form-control fs-4" id="message" cols="30" rows="10" placeholder="Write your message here" required></textarea>
+  </div>
+
+  <button type="submit" class="btn btn-bg fw-bold btn-lg btn-block fs-4 mb-5">Send Message</button>
+</form>

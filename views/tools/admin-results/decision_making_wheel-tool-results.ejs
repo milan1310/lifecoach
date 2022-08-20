@@ -1,0 +1,93 @@
+<%- include('../../partials/header') %> <%- include('../../partials/cdn') %>
+<div class="container roboto dcm-container mt-3 fs-4">
+    <!-- decision makinh wheel -->
+<% if(user.tag === "decisionmakingwheel"){ %>
+    <div>
+        <div class="text-center">
+            <h2>Result : Decision Making Reckoner</h2>
+            <h2><%= user.name %></h2>
+            <h2><%= user.email %></h2>
+        <hr>
+    <!-- result -->
+    <% if(user.decisionMakingWheel.length === 0){ %>
+        <h1>No data available for the Decision Making Reckoner</h1>
+        <% }else{ %>
+        <!-- result -->
+      <div class="row">
+          <div class="col-1">#</div>
+          <div class="col-5">Questions</div>
+          <div class="col-5">Answers</div>
+      </div>
+      <hr>
+        <div class="row">
+          <div class="col-1">1</div>
+          <div class="col-5">What is the problem? </div>
+          <div class="col-5"><%= user.decisionMakingWheel[0].problem %></div>
+        </div>
+        <hr>
+        <div class="row">
+          <div class="col-1">2</div>
+          <div class="col-5">What are the choices you have? </div>
+          <div class="col-5"><%= user.decisionMakingWheel[0].choices %></div>
+        </div>
+        <hr>
+        <div class="row">
+          <div class="col-1">3</div>
+          <div class="col-5">What do you think the consequences will be for you and others who are involved?
+          </div>
+          <div class="col-5"><%= user.decisionMakingWheel[0].consequences %></div>
+        </div>
+        <hr>
+        <div class="row">
+          <div class="col-1">4</div>
+          <div class="col-5"> What values do you need to consider?
+          </div>
+          <div class="col-5"><%= user.decisionMakingWheel[0].value %></div>
+        </div>
+        <hr>
+        <div class="row">
+          <div class="col-1">5</div>
+          <div class="col-5">How do you feel about the situation? </div>
+          <div class="col-5"><%= user.decisionMakingWheel[0].feelings %></div>
+        </div>
+        <hr>
+        <div class="row">
+          <div class="col-1">6</div>
+          <div class="col-5">Is there anything else you need to learn about it? </div>
+          <div class="col-5"><%= user.decisionMakingWheel[0].more_info %></div>
+        </div>
+        <hr>
+        <div class="row">
+          <div class="col-1">7</div>
+          <div class="col-5">Do you need to ask for help? Who will you ask? </div>
+          <div class="col-5"><%= user.decisionMakingWheel[0].help %></div>
+        </div>
+        <hr>
+        <div class="row">
+          <div class="col-1">8</div>
+          <div class="col-5">What is your decision? </div>
+          <div class="col-5"><%= user.decisionMakingWheel[0].decision %></div>
+        </div>
+        <hr>
+        <div class="row">
+          <div class="col-1">9</div>
+          <div class="col-5"> Do you think you made the right decision? Why?</div>
+          <div class="col-5"><%= user.decisionMakingWheel[0].access_decision %></div>
+        </div>
+        <hr>
+    <% } %>
+</div>
+<% } %>
+<!-- decision makinh wheel end -->
+
+
+    <div>
+        <a class="text-center d-block fs-3 mb-3" href="/admin/tools">← Go Back</a>
+    </div>
+</div>
+
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/3.5.1/chart.min.js" integrity="sha512-Wt1bJGtlnMtGP0dqNFH1xlkLBNpEodaiQ8ZN5JLA5wpc1sUlk/O5uuOMNgvzddzkpvZ9GLyYNa8w2s7rqiTk5Q==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+<script src="/assets/js/tools/putchart.js"></script>
+</body>
+</html>

@@ -1,0 +1,82 @@
+<%- include('./partials/header') %> <%- include('./partials/cdn') %>
+<div class="container">
+    <h1 class="text-center mt-5">My Decision Making Reckoner</h1>
+    <p class="mt-3 fs-2">
+      The decisions we make, impact our future and if we take the wrong decisions, we may be dealing
+with the negative consequences for a long time. For a decision to be impactful and correct in our life,
+we need to consider the consequences, impact and take a 360 degree view, which may not always
+be possible when we are deeply and emotionally entrenched in the decision itself. This tool reminds
+us of all the aspects and impacts our decision will have on our life. This allows us to take better,
+more impactful and well considered decisions and stops us from acting in haste.
+    </p>
+    <p class="fs-4 mt-4 lh-base">
+      Starting with your problem, answer all questions related to the decision you are making
+    </p>
+    <img src="/images/decison-making-wheel.png" height="500" width="500" class="d-block mx-auto mt-5" alt="">
+    <div class="dcm-container my-5">
+        <table class="table table-hover fs-4">
+            <thead>
+              <tr>
+                <th scope="col">#</th>
+                <th scope="col">Questions</th>
+                <th scope="col">Answers</th>
+              </tr>
+            </thead>
+            <tbody>
+<form action="/client/decisionmakingwheel/<%= uuid %>" method="post">
+              <tr>
+                <th scope="row">1</th>
+                <td>What is the problem? </td>
+                <td><input required class="form-control" name="problem" id=""></td>
+              </tr>
+              <tr>
+                <th scope="row">2</th>
+                <td>What are the choices you have? </td>
+                <td><input required type="text" class="w-100 form-control" style="min-width: 420px;" name="choices" id=""></td>
+              </tr>
+              <tr>
+                <th scope="row">3</th>
+                <td>What do you think the consequences will be for you and others who are involved?
+                </td>
+                <td><input required type="text" class="w-100 form-control" name="consequences" id=""></td>
+              </tr>
+              <tr>
+                <th scope="row">4</th>
+                <td> What values do you need to consider?
+                </td>
+                <td><input required type="text" class="w-100 form-control" name="value" id=""></td>
+              </tr>
+              <tr>
+                <th scope="row">5</th>
+                <td>How do you feel about the situation? </td>
+                <td><input required type="text" class="w-100 form-control" name="feelings" id=""></td>
+              </tr>
+              <tr>
+                <th scope="row">6</th>
+                <td>Is there anything else you need to learn about it? </td>
+                <td><input required type="text" class="w-100 form-control" name="more_info" id=""></td>
+              </tr>
+              <tr>
+                <th scope="row">7</th>
+                <td>Do you need to ask for help? Who will you ask? </td>
+                <td><input required type="text" class="w-100 form-control" name="help" id=""></td>
+              </tr>
+              <tr>
+                <th scope="row">8</th>
+                <td>What is your decision? </td>
+                <td><input required type="text" class="w-100 form-control" name="decision" id=""></td>
+              </tr>
+              <tr>
+                <th scope="row">9</th>
+                <td> Do you think you made the right decision? Why?</td>
+                <td><input required type="text" class="w-100 form-control" name="access_decision" id=""></td>
+              </tr>
+            </tbody>
+          </table>
+          <button class="btn btn-success btn-lg d-block mx-auto">Submit the Answers</button>
+</form>
+    </div>
+</div>
+
+</body>
+</html>

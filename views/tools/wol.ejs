@@ -1,0 +1,194 @@
+<%- include('../partials/header') %> <%- include('../partials/cdn') %>
+
+<div class="container">
+    <h1 class="text-center mt-5">Life Mastery Circle</h1>
+    <h4 class="text-center mt-3">Life Mastery Circle will give you a snap shot of where your life is right now. This tool can be
+        used any number of times and we will do so once again at the end of the program to see
+        how you have evolved. Meanwhile remember the following when you are doing this
+        exercise:</h4>
+<br><br>
+        <ol type="a" class="fs-3">
+            <li>
+                On a scale of 1-10, please rate the area of your life based on how fulfilled you feel in
+                that area of life…10 is maximum and 1 is the minimum
+            </li>
+            <li>Do not choose 5 as it is a non-committal sitting on the fence type of number</li>
+            <li>The rating you choose is based on your current situation and NOT what you would
+                ideally like it to be</li>
+            <li>
+                Once you have rated all 10 areas of your life, assign a number in order of priority to
+your choices. So 1, will be the most important current focus area for you. It is also
+normal that your number 1 focus area is also the areas where you have scored the
+least in the initial exercise. Hence, if you rated yourself at a 2 in your health and
+fitness area, this will probably be your number 1 focus area and so on…
+            </li>
+            <li>You have to asses yourself based on your own life and every person is unique</li>
+            <li>Please read the explanation and questions carefully before you answer</li>
+        </ol>
+    <form action="/tools-url/wol" method="post">
+        <div class="row g-3 mt-5">
+
+            <div class="col-lg-6 col-12 ">
+                <div class="range-container mx-auto my-3">
+                    <div class="d-flex justify-content-between mb-3">
+                        <label for="Health" class="form-label fw-bold fs-3" >Health</label> 
+                        <input type="number" name="health-rate" class="form-control fs-4" style="width: 250px; border: 2px solid #22a7a0;" placeholder="Give number to this category" min="1" max="10" name="" id="">
+                    </div>
+                    <p class="fs-4">
+                        Do you have an exercise routine? Do you eat healthy food? Are you looking after your
+    health? Do you drink excessively? Every night? Every weekend? Are you a member of a gym
+    and do you go to the gym at least 3 times a week? Are you an outdoors person? 
+    <br><br>
+    Is your mind calm and are you centered? Are you easily provoked and get angry often? Do you take any actions that calm your mind and emotions?
+                    </p>
+                    <input type="range" class="range-input" name="Health" id="" step="1" min="1" max="10" value="1" onchange="Health.innerText=value">
+                    <h3 id="Health" class="text-center fw-bold range-number">1</h3>
+                </div>
+            </div>
+            <div class="col-lg-6 col-12 ">
+                <div class="range-container mx-auto my-3">
+                    <div class="d-flex justify-content-between mb-3">
+                        <label for="Friends" class="form-label fw-bold fs-3" >Friends & Family</label>
+                        <input type="number" name="friends-rate" class="form-control fs-4" style="width: 250px; border: 2px solid #22a7a0;" placeholder="Give number to this category" min="1" max="10" name="" id="">
+                    </div>
+                    <p class="fs-4">
+                        In this area, we look at all your other relationships. Do you have close personal ties with your siblings and parents? Can you expect to receive emotional and other support from them? Do you give the same support back? How often do you see them?
+                        <br><br>
+                        Do you have a nice happy supportive group of friends? Are you lonely and alone all the time? Do you look forward to spending time with friends? How many people can you count that would be there to support you in an emergency? How many people would genuinely be happy with you in your happiness and achievements?
+                    </p>
+                    <input type="range" class="range-input" name="Friends" step="1" min="1" max="10" value="1" onchange="Friends.innerText=value">
+                    <h3 id="Friends" class="text-center fw-bold range-number">1</h3>
+                </div>
+            </div>
+            <div class="col-lg-6 col-12 ">
+                <div class="range-container mx-auto my-3">
+                    <div class="d-flex justify-content-between mb-3">
+                        <label for="Fun" class="form-label fw-bold fs-3" >Fun & Recreation</label>
+                        <input type="number" name="fun-rate" class="form-control fs-4" style="width: 250px; border: 2px solid #22a7a0;" placeholder="Give number to this category" min="1" max="10" name="" id="">
+                    </div>
+                    <p class="fs-4">
+                        Often in the hustle and bustle of life, we do not take time to unwind and do the things we love and enjoy. Do you take time to do the things that make you happy? Go on a hike? Cook a nice meal from scratch? Spend time with your children? Are you consciously allocating time to do the fun things in life? Is your idea of fun limited to hanging out with friends on weekends? 
+                    </p>
+                    <input type="range" class="range-input" name="Fun" step="1" min="1" max="10" value="1" onchange="Fun.innerText=value">
+                    <h3 id="Fun" class="text-center fw-bold range-number">1</h3>
+                </div>
+            </div>
+            <div class="col-lg-6 col-12 ">
+                <div class="range-container mx-auto my-3">
+                    <div class="d-flex justify-content-between mb-3">
+                        <label for="Wealth" class="form-label fw-bold fs-3" >Finance</label>
+                        <input type="number" name="finance-rate" class="form-control fs-4" style="width: 250px; border: 2px solid #22a7a0;" placeholder="Give number to this category" min="1" max="10" name="" id="">
+                    </div>
+                    <p class="fs-4">
+                        Do you manage your finances well? Have you invested and saved at least part of your savings? Are you comfortable and feel confident that you can handle a financial emergency? 
+                        <br><br>
+                        Are you spending all the money you earn? Are you able to provide for your family adequately? Are you saving money for your retirement? Do you have clear financial goals?
+                    </p>
+                    <input type="range" class="range-input" name="Wealth" step="1" min="1" max="10" value="1" onchange="Wealth.innerText=value">
+                    <h3 id="Wealth" class="text-center fw-bold range-number">1</h3>
+                </div>
+            </div>
+            <div class="col-lg-6 col-12 ">
+                <div class="range-container mx-auto my-3">
+                    <div class="d-flex justify-content-between mb-3">
+                        <label for="Relationship" class="form-label fw-bold fs-3" >Romance and Love</label>
+                        <input type="number" name="ramance-rate" class="form-control fs-4" style="width: 250px; border: 2px solid #22a7a0;" placeholder="Give number to this category" min="1" max="10" name="" id="">
+                    </div>
+                    <p class="fs-4">Are you in a strong loving and committed relationship? Do you take time to spend with your significant other? Are you getting and giving love and feel nurtured? Are you alone?</p>
+                    <input type="range" class="range-input" name="Relationship" step="1" min="1" max="10" value="1" onchange="Relationship.innerText=value">
+                    <h3 id="Relationship" class="text-center fw-bold range-number">1</h3>
+                </div>
+            </div>
+            <div class="col-lg-6 col-12 ">
+                <div class="range-container mx-auto my-3">
+                    <div class="d-flex justify-content-between mb-3">
+                        <label for="Learning" class="form-label fw-bold fs-3" >Personal Growth</label>
+                        <input type="number" name="personal-rate" class="form-control fs-4" style="width: 250px; border: 2px solid #22a7a0;" placeholder="Give number to this category" min="1" max="10" name="" id="">
+                    </div>
+                    <p class="fs-4">How much time do you spend in learning new things? Are you a seeker of knowledge? Do you like to read? Are you constantly taking courses in areas of your life that you know are your weak areas? This could be professional development courses or just a cooking course.</p>
+                    <input type="range" class="range-input" name="Learning" step="1" min="1" max="10" value="1" onchange="Learning.innerText=value">
+                    <h3 id="Learning" class="text-center fw-bold range-number">1</h3>
+                </div>
+            </div>
+            <div class="col-lg-6 col-12 ">
+                <div class="range-container mx-auto my-3">
+                    <div class="d-flex justify-content-between mb-3">
+                        <label for="Possession" class="form-label fw-bold fs-3" >Physical Environment </label>
+                        <input type="number" name="physical-rate" class="form-control fs-4" style="width: 250px; border: 2px solid #22a7a0;" placeholder="Give number to this category" min="1" max="10" name="" id="">
+                    </div>
+                    <p class="fs-4">
+                        Under this category we look at the actual physical environment you live in daily. This includes your work and home environment. Do you like where you live and work? Are you happy with the city, the organization you work in and the neighborhood you live in? Is your home set up so that you look forward to coming home every day?
+                        <br><br>
+                        Do you have inspirational people in your life that prod you to grow and become a better version of yourself? Are you surrounded with successful and driven people?
+                    </p>
+                    <input type="range" class="range-input" name="Possession" step="1" min="1" max="10" value="1" onchange="Possession.innerText=value">
+                    <h3 id="Possession" class="text-center fw-bold range-number">1</h3>
+                </div>
+            </div>
+            <div class="col-lg-6 col-12 ">
+                <div class="range-container mx-auto my-3">
+                    <div class="d-flex justify-content-between mb-3">
+                        <label for="Career" class="form-label fw-bold fs-3" >Business/Career</label>
+                        <input type="number" name="business-rate" class="form-control fs-4" style="width: 250px; border: 2px solid #22a7a0;" placeholder="Give number to this category" min="1" max="10" name="" id="">
+                    </div>
+                    <p class="fs-4">
+                        If you are running your own business are you happy with your progress? Are you making an impact in your field? Does your work give you satisfaction and fulfillment? 
+                        <br><br>
+                        Is your career exciting? Are you progressing in your work and career? Do you see a clear path to success? Are you getting your promotions on time? 
+                        <br><br>
+                        Assuming you continue as you are doing, in 5 years, would you have reached your career and business goals?
+                    </p>
+                    <input type="range" class="range-input" name="Career" step="1" min="1" max="10" value="1" onchange="Career.innerText=value">
+                    <h3 id="Career" class="text-center fw-bold range-number">1</h3>
+                </div>
+            </div>
+            <div class="col-lg-6 col-12 ">
+                <div class="range-container mx-auto my-3">
+                    <div class="d-flex justify-content-between mb-3">
+                        <label for="Contribution" class="form-label fw-bold fs-3" >Contribution</label>
+                        <input type="number" name="contribution-rate" class="form-control fs-4" style="width: 250px; border: 2px solid #22a7a0;" placeholder="Give number to this category" min="1" max="10" name="" id="">
+                    </div>
+                    <p class="fs-4">
+                        Every one of us needs and wants to have the satisfaction of contributing to the society and world around us. Some of us contribute for the less fortunate through donating money. Others contribute by going to a shelter or home and helping others. Others contribute by making a difference in their communities or even in their place of work. How are you contributing?  
+                    </p>
+                    <input type="range" class="range-input" name="Contribution" step="1" min="1" max="10" value="1" onchange="Contribution.innerText=value">
+                    <h3 id="Contribution" class="text-center fw-bold range-number">1</h3>
+                </div>
+            </div>
+            <div class="col-lg-6 col-12 ">
+                <div class="range-container mx-auto my-3">
+                    <div class="d-flex justify-content-between mb-3">
+                        <label for="Spirituality" class="form-label fw-bold fs-3" >Spirituality</label>
+                        <input type="number" name="spirtuality-rate" class="form-control fs-4" style="width: 250px; border: 2px solid #22a7a0;" placeholder="Give number to this category" min="1" max="10" name="" id="">
+                    </div>
+                    <p class="fs-4">
+                        We are not just physical beings but highly spiritual beings. Each one of us defines our spirituality differently. Having a spiritual/value based link gives us emotional and physical support to go through the difficult times in life. Having a community of spiritual people can be a matter of great support to us. Do you feel you have this support?  
+                    </p>
+                    <input type="range" class="range-input" name="Spirituality" step="1" min="1" max="10" value="1" onchange="Spirituality.innerText=value">
+                    <h3 id="Spirituality" class="text-center fw-bold range-number">1</h3>
+                </div>
+            </div>
+            <button type="submit"
+            class="text-center btn btn-test"
+            name="uuid"
+            value="<%= uuid %>">submit</button>
+            </div>
+    </form>
+    </div>
+
+    <script>
+        const inputs = document.querySelectorAll('.range-input');
+        console.log(inputs);
+        inputs.forEach(el => {
+            el.addEventListener('input', ()=> {
+                const id = document.getElementById(el.name);
+                console.log(el.name);
+                id.innerText = el.value
+            })
+        })
+    </script>
+</div>
+</br>
+
+</body>
+</html>

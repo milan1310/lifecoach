@@ -1,0 +1,89 @@
+<%- include('./partials/header') %> <%- include('./partials/cdn') %>
+<input type="text" name="uuid" value="<%= uuid %>" hidden id="uuid">
+<div class="container disable-text-selection" style="position: relative;">
+    <h1 class="mt-5 text-center">My Core Values</h1>
+    <p class="mt-3 fs-3">
+        A <b>Core Value</b> is something that defines you as a person. If this core value is not met or challenged in
+a situation it makes you unhappy or challenges you in a negative way. Thus if one of your <b>Core Values</b>
+is to find peace in life, a job in the army where you are daily confronted with violence will not be the
+best choice. Similarly, if your core value is integrity, and you are working in an environment where
+you are constantly expected to “bend the rules” or do something that is not in conformity with
+integrity that you uphold, you will feel stifled and stressed in such an environment.
+<br><br>
+So take some time to identify these <b>Core Values</b>, as they will continue to define you throughout your
+life. Normally, <b>Core Values</b> do not change but sometimes when there is a life changing or major
+event in you live, a Core Value can change. Thus, <b>Core Values</b> are the sum total of how you were
+brought up, the values your family inculcated in you, plus your own life experience.
+    </p>
+    <div id="baseline-first-container">
+        <div id="baseline-first" class="mx-auto d-block">
+            <p class="mt-3 fs-4 text-center message">Select as many Core Values as you want that you feel are important to you (Select Minimum of: 26)</p>
+            <p class="fs-3 text-center counter_text" style="color: rgb(255, 255, 255); background-color: #22A7A0;">Word Selected : <span class="count-first">0</span></p>
+    
+        </div>
+        <button class="btn btn-lg mx-auto mt-5 d-block submit btn-success mb-5" disabled id="baseline-sub-first"  onclick="window.scrollTo(0,0)">Save & Next</button>
+    </div>
+    <!-- secound step -->
+    <div id="baseline-secound-container">
+        <div id="baseline-secound">
+            <p class="mt-3 fs-4 text-center message">Please select 24 Core Values that you relate the most to</p>
+            <p class="fs-3 text-center counter_text counter_text" style="color: rgb(255, 255, 255); background-color: #22A7A0;">Word Selected : <span class="count-secound">0</span>/24</p>
+        </div>
+        <button class="btn btn-lg mx-auto mt-5 d-block submit-secound btn-success mb-5" disabled id="baseline-sub-secound">Save & Next</button>
+    </div>
+    <!-- third step -->
+    <div id="baseline-third-container">
+        <div id="baseline-third">
+            <p class="mt-3 fs-4 text-center message">Please select 6 Core Values that you relate the most to</p>
+            <p class="fs-3 text-center counter_text" style="color: rgb(255, 255, 255); background-color: #22A7A0;">Word Selected : <span class="count-third">0</span>/6</p>
+        </div>
+        <button class="btn btn-lg mx-auto mt-5 d-block submit-third btn-success mb-5" disabled id="baseline-sub-third">Save & Next</button>
+    </div>
+    <!-- fourth step -->
+    <div id="baseline-fourth-container">
+        <div id="baseline-fourth">
+            <p class="mt-3 fs-4 text-center message">Please select 5 Core Values that you relate the most to</p>
+            <p class="fs-3 text-center counter_text" style="color: rgb(255, 255, 255); background-color: #22A7A0;">Word Selected : <span class="count-fourth">0</span>/5</p>
+        </div>
+        <button class="btn btn-lg mx-auto mt-5 d-block submit-fourth btn-success mb-5" disabled id="baseline-sub-fourth">Save & Next</button>
+    </div>
+    <!-- fifth step -->
+    <div id="baseline-fifth-container">
+        <div id="baseline-fifth">
+            <p class="mt-3 fs-4 text-center message">Please select 4 Core Values that you relate the most to</p>
+            <p class="fs-3 text-center counter_text" style="color: rgb(255, 255, 255); background-color: #22A7A0;">Word Selected : <span class="count-fifth">0</span>/4</p>
+        </div>
+        <button class="btn btn-lg mx-auto mt-5 d-block submit-fifth btn-success mb-5" disabled id="baseline-sub-fifth">Save & Next</button>
+    </div>
+    <!-- sixth step -->
+    <div id="baseline-sixth-container">
+        <div id="baseline-sixth">
+            <p class="mt-3 fs-4 text-center message">Please select 3 Core Values that you relate the most to</p>
+            <p class="fs-3 text-center counter_text" style="color: rgb(255, 255, 255); background-color: #22A7A0;">Word Selected : <span class="count-sixth">0</span>/3</p>
+        </div>
+        <button class="btn btn-lg mx-auto mt-5 d-block submit-sixth btn-success mb-5" disabled id="baseline-sub-sixth">Save & Next</button>
+    </div>
+    <!-- seventh step -->
+    <div id="baseline-seventh-container">
+        <div id="baseline-seventh">
+            <p class="mt-3 fs-4 text-center message">Please select 2 Core Values that you relate the most to</p>
+            <p class="fs-3 text-center counter_text" style="color: rgb(255, 255, 255); background-color: #22A7A0;">Word Selected : <span class="count-seventh">0</span>/2</p>
+        </div>
+        <button class="btn btn-lg mx-auto mt-5 d-block submit-seventh btn-success mb-5" disabled id="baseline-sub-seventh">Save & Next</button>
+    </div>
+    <!-- eighth step -->
+    <div id="baseline-eighth-container">
+        <div id="baseline-eighth">
+            <p class="mt-3 fs-4 text-center message">Please select 1 Core Values that you relate the most to</p>
+            <p class="fs-3 text-center counter_text" style="color: rgb(255, 255, 255); background-color: #22A7A0;">Word Selected : <span class="count-eighth">0</span>/1</p>
+        </div>
+        <button class="btn btn-lg mx-auto mt-5 d-block submit-eighth btn-success mb-5" disabled id="baseline-sub-eighth">Save & Next</button>
+    </div>
+    <!-- ningth step -->
+    <div id="baseline-ningth-container">
+        <div id="baseline-ningth"></div>
+    </div>
+</div>
+<script src="/assets/js/baseline.js"></script>
+</body>
+</html>

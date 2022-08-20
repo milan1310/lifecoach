@@ -1,0 +1,46 @@
+<%- include('./partials/header') %> <%- include('./partials/cdn') %>
+
+<form action="/test/userTest" method="post">
+  <div class="container" id="questionlist">
+    <h3 class="instruction-test">
+      </span>
+      Remember to complete all questions and do not spend too much time on
+      them...follow your instincts....enjoy!
+    </h3>
+  </div>
+  <div class="container">
+    <div class="d-grid col-3 mx-auto my-5">
+      <button
+        type="submit"
+        class="text-center btn btn-test"
+        name="uuid"
+        value="<%= UUID %>"
+      >
+        Submit
+      </button>
+    </div>
+    <!-- Button trigger modal -->
+    <div class="disp">
+      <div id="myModal" class="modal">
+  <div class="modal-content">
+    <div class="modal-header">
+      <h2>Warning</h2>
+      <span class="close">&times;</span>
+    </div>
+    <div class="modal-body fs-3 text-center">
+      <p>Please fill out all the questions answer.</p>
+      <p>Or else you will be not able to submit the test.</p>
+    </div>
+  
+  </div>
+
+</div>
+    </div>
+
+
+</form>
+
+<script src="/assets/js/test.js"></script>
+
+</body>
+</html>

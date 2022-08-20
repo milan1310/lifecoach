@@ -1,0 +1,69 @@
+<%- include('./partials/header') %> <%- include('./partials/cdn') %>
+<div class="container">
+    <h1 class="text-center mt-5">My Decision Making Reckoner - Result</h1>
+    <img src="/images/decison-making-wheel.png" height="500" width="500" class="d-block mx-auto mt-5" alt="">
+
+    <div class="dcm-container my-5">
+        <table class="table table-hover fs-4">
+            <thead>
+              <tr>
+                <th scope="col">#</th>
+                <th scope="col">Questions</th>
+                <th scope="col">Answers</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <th scope="row">1</th>
+                <td>What is the problem? </td>
+                <td><%= result.problem %></td>
+              </tr>
+              <tr>
+                <th scope="row">2</th>
+                <td>What are the choices you have? </td>
+                <td><%= result.choices %></td>
+              </tr>
+              <tr>
+                <th scope="row">3</th>
+                <td>What do you think the consequences will be for you and others who are involved?
+                </td>
+                <td><%= result.consequences %></td>
+              </tr>
+              <tr>
+                <th scope="row">4</th>
+                <td> What values do you need to consider?
+                </td>
+                <td><%= result.value %></td>
+              </tr>
+              <tr>
+                <th scope="row">5</th>
+                <td>How do you feel about the situation? </td>
+                <td><%= result.feelings %></td>
+              </tr>
+              <tr>
+                <th scope="row">6</th>
+                <td>Is there anything else you need to learn about it? </td>
+                <td><%= result.more_info %></td>
+              </tr>
+              <tr>
+                <th scope="row">7</th>
+                <td>Do you need to ask for help? Who will you ask? </td>
+                <td><%= result.help %></td>
+              </tr>
+              <tr>
+                <th scope="row">8</th>
+                <td>What is your decision? </td>
+                <td><%= result.decision %></td>
+              </tr>
+              <tr>
+                <th scope="row">9</th>
+                <td> Do you think you made the right decision? Why?</td>
+                <td><%= result.access_decision %></td>
+              </tr>
+            </tbody>
+          </table>
+    </div>
+</div>
+
+</body>
+</html>

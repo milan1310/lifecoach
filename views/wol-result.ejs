@@ -1,0 +1,20 @@
+<%- include('./partials/header') %> <%- include('./partials/cdn') %>
+<input type="text" hidden id="uuid" value="<%= uuid %>">
+
+<div class="container">
+    <h1 class="text-center mt-5">Here is your Life Mastery Circle</h1>
+    <p class="fs-4 text-center"><%= msg %></p>
+    <div class="chart mt-5">
+        <canvas id="myChart"></canvas>
+    </div>
+    <hr>
+    <div class="text-center" id="ranks"></div>
+
+</div>
+
+
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/3.5.1/chart.min.js" integrity="sha512-Wt1bJGtlnMtGP0dqNFH1xlkLBNpEodaiQ8ZN5JLA5wpc1sUlk/O5uuOMNgvzddzkpvZ9GLyYNa8w2s7rqiTk5Q==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+<script src="/assets/js/putchart.js"></script>
+</body>
+</html>

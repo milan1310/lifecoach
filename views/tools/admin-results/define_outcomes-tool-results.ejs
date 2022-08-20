@@ -1,0 +1,39 @@
+<%- include('../../partials/header') %> <%- include('../../partials/cdn') %>
+<div class="container dcm-container roboto mt-5">
+    <!-- Define my outcomes -->
+    <div class="text-center">
+        <h2>Result : Define Outcomes</h2>
+        <h2><%= user.name %></h2>
+        <h2><%= user.email %></h2>
+    <hr>
+    <% if(user.outcomes.length === 0){ %>
+        <h1>No data available for the Outcomes</h1>
+        <% }else{ %>
+          <table class="table table-hover fs-4" id="result_table">
+            <thead>
+              <tr>
+                <th scope="col">Actual Ranking</th>
+                <th scope="col">Potential Priorities</th>
+                <th scope="col">Predicted Ranking</th>
+                <th scope="col">Total Score</th>
+              </tr>
+            </thead>
+          </table>
+          <script>
+            let res = '<%- JSON.stringify(user.outcomes[0]) %>'
+        </script>
+        <script src="/assets/js/tools/defineoutcomeresult.js"></script>
+        <%}%>
+        <!-- char end -->
+
+
+    <div>
+        <a class="text-center d-block fs-3 mb-3" href="/admin/tools">← Go Back</a>
+    </div>
+</div>
+
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/3.5.1/chart.min.js" integrity="sha512-Wt1bJGtlnMtGP0dqNFH1xlkLBNpEodaiQ8ZN5JLA5wpc1sUlk/O5uuOMNgvzddzkpvZ9GLyYNa8w2s7rqiTk5Q==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+<script src="/assets/js/tools/putchart.js"></script>
+</body>
+</html>

@@ -1,0 +1,376 @@
+<%- include('./partials/header') %> <%- include('./partials/cdn') %>
+<div class="container-fluid roboto">
+    <div class="row">
+        <%- include('partials/admin-nav') %>
+        <div class="col-sm min-vh-100">
+            <div class="row">
+                <div class="col-sm-2 col-12 my-3">
+            <div class="d-flex align-items-start fs-5 mt-5">
+                <div class="nav flex-column nav-pills me-3" id="v-pills-tab" role="tablist" aria-orientation="vertical">
+                  <button class="nav-link active" id="v-pills-wol-tab" data-bs-toggle="pill" data-bs-target="#v-pills-wol" type="button" role="tab" aria-controls="v-pills-wol" aria-selected="true">Life Mastery Circle</button>
+                  <button class="nav-link" id="v-pills-baselines-tab" data-bs-toggle="pill" data-bs-target="#v-pills-baselines" type="button" role="tab" aria-controls="v-pills-baselines" aria-selected="false">Core Values</button>
+                  <button class="nav-link" id="v-pills-ncodes-tab" data-bs-toggle="pill" data-bs-target="#v-pills-ncodes" type="button" role="tab" aria-controls="v-pills-ncodes" aria-selected="false">N Patterns/E Patterns</button>
+                  <button class="nav-link" id="v-pills-decision_wheel-tab" data-bs-toggle="pill" data-bs-target="#v-pills-decision_wheel" type="button" role="tab" aria-controls="v-pills-decision_wheel" aria-selected="false">Decision Making Reckoner</button>
+                  <button class="nav-link" id="v-pills-outecomes-tab" data-bs-toggle="pill" data-bs-target="#v-pills-outecomes" type="button" role="tab" aria-controls="v-pills-outecomes" aria-selected="false">Define My Outcomes</button>
+                </div></div></div>
+                <div class="col-sm-8">
+                <div class="tab-content" id="v-pills-tabContent">
+                  
+                  <!-- wol -->
+                  <div class="tab-pane fade show active" id="v-pills-wol" role="tabpanel" aria-labelledby="v-pills-wol-tab">
+                      <h1 class="text-center mt-5">Life Mastery Circle Admin</h1>
+
+                          <!-- button start send -->
+                            <!-- Button trigger modal -->
+                            <button type="button" class="btn btn-lg btn-success mt-5" data-bs-toggle="modal" data-bs-target="#wol">
+                              Add new user
+                          </button>
+
+<!-- Modal -->
+<div class="modal fade" id="wol" tabindex="-1" aria-labelledby="wolLabel" aria-hidden="true">
+<div class="modal-dialog">
+<div class="modal-content">
+<div class="modal-header">
+  <h5 class="modal-title" id="wolLabel">Send Life Mastery Circle</h5>
+  <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+</div>
+<form action="/admin/tools/new-client" method="post">
+<div class="modal-body">
+  <div class="mb-3">
+    <h3></h3>
+    <label for="name">Name</label>
+    <input type="" class="form-control mb-3" name="name" value="">
+    <label for="email">Email address</label>
+    <input type="text" class="form-control mb-3" name="email" value="">
+    <input type="hidden" class="disable" name="tag" value="wol">
+    <label for="message" class="form-label">Message</label>
+    <textarea class="form-control" name="message" id="message" rows="3"></textarea>
+  </div>
+</div>
+<div class="modal-footer">
+  <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+  <button type="submit" class="btn btn-primary">Send</button>
+</div>
+</form>
+</div>
+</div>
+</div>
+                          <table class="table">
+                            <thead>
+                              <tr>
+                                <th scope="col">#</th>
+                                <th scope="col">Name</th>
+                                <th scope="col">Email</th>
+                                <th scope="col">Result</th>
+                              </tr>
+                            </thead>
+                            <tbody>
+                              <% users.forEach(user => { %>
+                                <% if(user.tag === 'wol'){ %>
+                                  <tr>
+                                    <% const m = user %>
+                                    <th scope="row">#</th>
+                                    <td><%= m.name %></td>
+                                    <td><%= m.email %></td>
+                                    <td>
+                                      <!-- Button trigger modal -->
+                                          <a type="button" href="/admin/tools/result/<%= user._id %>"  class="btn btn-primary">Show result</a>
+                                    </td>
+                                  </tr>
+                                  <% } %>
+                                <% }); %>
+                            </tbody>
+                          </table>
+                </div> 
+                
+                  <!-- wol end -->
+
+                  <!-- Baseline -->
+                  <div class="tab-pane fade" id="v-pills-baselines" role="tabpanel" aria-labelledby="v-pills-baselines-tab">
+                    <h1 class="text-center mt-5">Core Values Admin</h1>
+
+                    <!-- button start send -->
+                      <!-- Button trigger modal -->
+                      <button type="button" class="btn btn-lg btn-success mt-5" data-bs-toggle="modal" data-bs-target="#baseline">
+                        Add new user
+                    </button>
+
+<!-- Modal -->
+<div class="modal fade" id="baseline" tabindex="-1" aria-labelledby="baselineLabel" aria-hidden="true">
+<div class="modal-dialog">
+<div class="modal-content">
+<div class="modal-header">
+<h5 class="modal-title" id="baselineLabel">Send Core Values</h5>
+<button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+</div>
+<form action="/admin/tools/new-client" method="post">
+<div class="modal-body">
+<div class="mb-3">
+<h3></h3>
+<label for="name">Name</label>
+<input type="" class="form-control mb-3" name="name" value="">
+<label for="email">Email address</label>
+<input type="text" class="form-control mb-3" name="email" value="">
+<input type="hidden" class="disable" name="tag" value="baseline">
+<label for="message" class="form-label">Message</label>
+<textarea class="form-control" name="message" id="message" rows="3"></textarea>
+</div>
+</div>
+<div class="modal-footer">
+<button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+<button type="submit" class="btn btn-primary">Send</button>
+</div>
+</form>
+</div>
+</div>
+</div>
+                    <table class="table">
+                      <thead>
+                        <tr>
+                          <th scope="col">#</th>
+                          <th scope="col">Name</th>
+                          <th scope="col">Email</th>
+                          <th scope="col">Result</th>
+                        </tr>
+                      </thead>
+                      <tbody>
+                        <% users.forEach(user => { %>
+                          <% if(user.tag === 'baseline'){ %>
+                            <tr>
+                              <th scope="row">#</th>
+                              <td><%= user.name %></td>
+                              <td><%= user.email %></td>
+                              <td>
+                                <!-- Button trigger modal -->
+                                <a type="button" href="/admin/tools/result/<%= user._id %>"  class="btn btn-primary">Show result</a>
+
+<!-- Modal -->
+                                    <div class="modal fade" id="baselineResult" tabindex="-1" aria-labelledby="baselineResultLabel" aria-hidden="true">             
+                              </td>
+                            </tr>
+                            <% } %>
+                          <% }); %>
+                        
+                      </tbody>
+                    </table>
+            </div>
+            <!-- Baseline end -->
+
+            <!-- N codes -->
+                  <div class="tab-pane fade" id="v-pills-ncodes" role="tabpanel" aria-labelledby="v-pills-ncodes-tab">
+                    <h1 class="text-center mt-5">N Patterns/E Patterns Admin</h1>
+
+                    <!-- button start send -->
+                      <!-- Button trigger modal -->
+                      <button type="button" class="btn btn-lg btn-success mt-5" data-bs-toggle="modal" data-bs-target="#ncodes">
+                        Add new user
+                    </button>
+
+<!-- Modal -->
+<div class="modal fade" id="ncodes" tabindex="-1" aria-labelledby="ncodesLabel" aria-hidden="true">
+<div class="modal-dialog">
+<div class="modal-content">
+<div class="modal-header">
+<h5 class="modal-title" id="ncodesLabel">Send N Patterns/E Patterns</h5>
+<button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+</div>
+<form action="/admin/tools/new-client" method="post">
+<div class="modal-body">
+<div class="mb-3">
+<h3></h3>
+<label for="name">Name</label>
+<input type="" class="form-control mb-3" name="name" value="">
+<label for="email">Email address</label>
+<input type="text" class="form-control mb-3" name="email" value="">
+<input type="hidden" class="disable" name="tag" value="necodes">
+<label for="message" class="form-label">Message</label>
+<textarea class="form-control" name="message" id="message" rows="3"></textarea>
+</div>
+</div>
+<div class="modal-footer">
+<button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+<button type="submit" class="btn btn-primary">Send</button>
+</div>
+</form>
+</div>
+</div>
+</div>
+                    <table class="table">
+                      <thead>
+                        <tr>
+                          <th scope="col">#</th>
+                          <th scope="col">Name</th>
+                          <th scope="col">Email</th>
+                          <th scope="col">Result</th>
+                        </tr>
+                      </thead>
+                      <tbody>
+                          <% users.forEach(user => { %>
+                            <% if(user.tag === "necodes"){ %>
+                              <tr>
+                                <th scope="row">#</th>
+                                <td><%= user.name %></td>
+                                <td><%= user.email %></td>
+                                <td>
+                                  <!-- Button trigger modal -->
+                                  <a type="button" href="/admin/tools/result/n-codes/<%= user._id %>"  class="btn btn-primary">Show result</a>
+                                </td>
+                              </tr>
+                              <% } %>
+                            <% }); %>
+                        <!-- </tr> -->
+                        
+                      </tbody>
+                    </table>
+                  </div>
+                  <!-- n codes end -->
+
+                  <!-- Decision making wheel -->
+                  <div class="tab-pane fade" id="v-pills-decision_wheel" role="tabpanel" aria-labelledby="v-pills-decision_wheel-tab">
+                    <h1 class="text-center mt-5">Decision Making Reckoner Admin</h1>
+
+                    <!-- button start send -->
+                      <!-- Button trigger modal -->
+                      <button type="button" class="btn btn-lg btn-success mt-5" data-bs-toggle="modal" data-bs-target="#decisionWheel">
+                        Add new user
+                    </button>
+
+<!-- Modal -->
+<div class="modal fade" id="decisionWheel" tabindex="-1" aria-labelledby="decisionWheelLabel" aria-hidden="true">
+<div class="modal-dialog">
+<div class="modal-content">
+<div class="modal-header">
+<h5 class="modal-title" id="decisionWheelLabel">Send Decision Making Reckoner</h5>
+<button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+</div>
+<form action="/admin/tools/new-client" method="post">
+<div class="modal-body">
+<div class="mb-3">
+<h3></h3>
+<label for="name">Name</label>
+<input type="" class="form-control mb-3" name="name" value="">
+<label for="email">Email address</label>
+<input type="text" class="form-control mb-3" name="email" value="">
+<input type="hidden" class="disable" name="tag" value="decisionmakingwheel">
+<label for="message" class="form-label">Message</label>
+<textarea class="form-control" name="message" id="message" rows="3"></textarea>
+</div>
+</div>
+<div class="modal-footer">
+<button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+<button type="submit" class="btn btn-primary">Send</button>
+</div>
+</form>
+</div>
+</div>
+</div>
+                    <table class="table">
+                      <thead>
+                        <tr>
+                          <th scope="col">#</th>
+                          <th scope="col">Name</th>
+                          <th scope="col">Email</th>
+                          <th scope="col">Result</th>
+                        </tr>
+                      </thead>
+                      <tbody>
+                        <tr>
+                          <% users.forEach(user => { %>
+                            <% if(user.tag === 'decisionmakingwheel'){ %>
+                              <tr>
+                                <th scope="row">#</th>
+                                <td><%= user.name %></td>
+                                <td><%= user.email %></td>
+                                <td>
+                                  <!-- Button trigger modal -->
+                                  <a type="button" href="/admin/tools/result/decisionmakingwheel/<%= user._id %>"  class="btn btn-primary">Show result</a>
+</td>
+</tr>
+<% } %>
+<% }); %>
+</tr>
+
+</tbody>
+</table>
+</div>
+
+                  <!-- Decision making wheel end -->
+                  
+                  <!-- Define my outcomes -->
+                  <div class="tab-pane fade" id="v-pills-outecomes" role="tabpanel" aria-labelledby="v-pills-outecomes-tab">
+                    <h1 class="text-center mt-5">Define My Outcomes Admin</h1>
+
+                    <!-- button start send -->
+                      <!-- Button trigger modal -->
+                      <button type="button" class="btn btn-lg btn-success mt-5" data-bs-toggle="modal" data-bs-target="#defineOutcome">
+                        Add new user
+                    </button>
+
+<!-- Modal -->
+<div class="modal fade" id="defineOutcome" tabindex="-1" aria-labelledby="defineOutcomeLabel" aria-hidden="true">
+<div class="modal-dialog">
+<div class="modal-content">
+<div class="modal-header">
+<h5 class="modal-title" id="defineOutcomeLabel">Send Define My outcomes</h5>
+<button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+</div>
+<form action="/admin/tools/new-client" method="post">
+<div class="modal-body">
+<div class="mb-3">
+<h3></h3>
+<label for="name">Name</label>
+<input type="" class="form-control mb-3" name="name" value="">
+<label for="email">Email address</label>
+<input type="text" class="form-control mb-3" name="email" value="">
+<input type="hidden" class="disable" name="tag" value="defineoutcome">
+<label for="message" class="form-label">Message</label>
+<textarea class="form-control" name="message" id="message" rows="3"></textarea>
+</div>
+</div>
+<div class="modal-footer">
+<button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+<button type="submit" class="btn btn-primary">Send</button>
+</div>
+</form>
+</div>
+</div>
+</div>
+                    <table class="table">
+                      <thead>
+                        <tr>
+                          <th scope="col">#</th>
+                          <th scope="col">Name</th>
+                          <th scope="col">Email</th>
+                          <th scope="col">Result</th>
+                        </tr>
+                      </thead>
+                      <tbody>
+                        <tr>
+                          <% users.forEach(user => { %>
+                            <% if(user.tag === 'defineoutcome'){ %>
+                              <tr>
+                                <th scope="row">#</th>
+                                <td><%= user.name %></td>
+                                <td><%= user.email %></td>
+                                <td>
+                                  <!-- Button trigger modal -->
+                                  <a type="button" href="/admin/tools/result/defineoutcomes/<%= user._id %>"  class="btn btn-primary">Show result</a>
+                                   
+                                </td>
+                              </tr>
+                              <% } %>
+                            <% }); %>
+                        </tr>
+                        
+                      </tbody>
+                    </table>
+                  </div>
+                  <!-- Define my outcomes end -->
+                </div>
+                </div>
+              </div></div>
+        </div>
+        </div>
+</div>
+</body>
+</html>

@@ -1,0 +1,23 @@
+<%- include('../partials/header') %> <%- include('../partials/cdn') %>
+
+<div class="container">
+    <h1 class="text-center mt-5">Your Outcomes</h1><hr>
+    <div >
+        <table class="table table-hover fs-4" id="result_table">
+            <thead>
+              <tr>
+                <th scope="col">Actual Ranking</th>
+                <th scope="col">Potential Priorities</th>
+                <th scope="col">Predicted Ranking</th>
+                <th scope="col">Total Score</th>
+              </tr>
+            </thead>
+        </table>
+    </div>
+
+    <script>
+        let res = '<%- JSON.stringify(result) %>'
+    </script>
+    <script src="/assets/js/tools/defineoutcomeresult.js"></script>
+</body>
+</html>

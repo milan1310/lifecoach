@@ -1,0 +1,375 @@
+<%- include('./partials/header') %> <%- include('./partials/cdn') %>
+<div class="container-fluid roboto">
+    <div class="row">
+        <%- include('./partials/admin-nav') %>
+        <div class="col-sm vh-100">
+            <div class="row">
+                <div class="col-sm-2 col-12 my-3">
+                    <div class="d-flex align-items-start">
+                        <div class="nav flex-column nav-pills me-3" id="v-pills-tab" role="tablist" aria-orientation="vertical">
+                          <button class="nav-link active btn-lg" id="v-pills-wol-tab" data-bs-toggle="pill" data-bs-target="#v-pills-wol" type="button" role="tab" aria-controls="v-pills-home" aria-selected="true">Life Mastery Circle</button>
+                          <button class="nav-link btn-lg" id="v-pills-baseline-tab" data-bs-toggle="pill" data-bs-target="#v-pills-baseline" type="button" role="tab" aria-controls="v-pills-baseline" aria-selected="false">Core Values</button>
+                          <button class="nav-link btn-lg" id="v-pills-necodes-tab" data-bs-toggle="pill" data-bs-target="#v-pills-necodes" type="button" role="tab" aria-controls="v-pills-necodes" aria-selected="false">N Patterns/E Patterns</button>
+                          <button class="nav-link btn-lg" id="v-pills-settings-tab" data-bs-toggle="pill" data-bs-target="#v-pills-settings" type="button" role="tab" aria-controls="v-pills-settings" aria-selected="false">Decision Making Reckoner</button>
+                          <button class="nav-link btn-lg" id="v-pills-outcomes-tab" data-bs-toggle="pill" data-bs-target="#v-pills-outcomes" type="button" role="tab" aria-controls="v-pills-outcomes" aria-selected="false">Define Outcomes</button>
+                        </div></div></div>
+                        <div class="col-sm-8">
+                        <div class="tab-content" id="v-pills-tabContent">
+<!-- wheel of life start -->
+                          <div class="tab-pane fade show active" id="v-pills-wol" role="tabpanel" aria-labelledby="v-pills-wol-tab">
+                            <h2 class="text-center">My Life Mastery Circle</h2>
+                            <!-- button start send -->
+                            <!-- Button trigger modal -->
+                            <button type="button" class="btn btn-lg btn-success mt-5" data-bs-toggle="modal" data-bs-target="#wol">
+                              Send Life Mastery Circle
+                          </button>
+                          <a href="/client/wol/<%= user.uuid %>" class="btn btn-success">link to test</a>
+
+<!-- Modal -->
+<div class="modal fade" id="wol" tabindex="-1" aria-labelledby="wolLabel" aria-hidden="true">
+<div class="modal-dialog">
+<div class="modal-content">
+<div class="modal-header">
+  <h5 class="modal-title" id="wolLabel">Send Life Mastery Circle</h5>
+  <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+</div>
+<form action="/admin/clients/send-mail" method="post">
+<div class="modal-body">
+  <div class="mb-3">
+    <h3><%= user.name %></h3>
+    <input type="hidden" class="disable" name="email" value="<%= user.email %>">
+    <input type="hidden" class="disable" name="type" value="wol">
+    <input type="hidden" class="disable" name="name" value="<%= user.name %>">
+    <input type="hidden" class="disable" name="uuid" value="<%= user.uuid %>">
+    <label for="message" class="form-label">Message For <%= user.name %></label>
+    <textarea class="form-control" name="message" id="message" rows="3"></textarea>
+  </div>
+</div>
+<div class="modal-footer">
+  <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+  <button type="submit" class="btn btn-primary">Send</button>
+</div>
+</form>
+</div>
+</div>
+</div>
+<!-- char start -->
+<% if(user.wheelOfLife.length === 0){ %>
+  <h1>No data available for the Wheel of life</h1>
+  <% }else{ %>
+  <div class="chart mt-5">
+  <input type="text" hidden id="uuid" value="<%= user.uuid %>">
+  <canvas id="myChart"></canvas>
+  </div>
+  <hr>
+  <div class="text-center" id="ranks"></div>
+  <%}%>
+  <!-- char end -->
+  <!-- button end send -->    
+  <!-- model end -->
+</div>
+<!-- Wheel of life end -->
+
+<!-- baseline start -->
+<div class="tab-pane fade" id="v-pills-baseline" role="tabpanel" aria-labelledby="v-pills-baseline-tab">
+  <h2 class="text-center">My Core Values</h2>
+  <!-- Button trigger modal -->
+  <button type="button" class="btn btn-lg btn-success mt-5" data-bs-toggle="modal" data-bs-target="#baseline">
+    Send Core Values
+</button>
+<a href="/client/baseline/<%= user.uuid %>" class="btn btn-success">link to test</a>
+<!-- Modal -->
+<div class="modal fade" id="baseline" tabindex="-1" aria-labelledby="baselinelable" aria-hidden="true">
+<div class="modal-dialog">
+<div class="modal-content">
+<div class="modal-header">
+<h5 class="modal-title" id="baselinelable">Send Core Values</h5>
+<button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+</div>
+<form action="/admin/clients/send-mail" method="post">
+<div class="modal-body">
+<div class="mb-3">
+<h3><%= user.name %></h3>
+<input type="hidden" class="disable" name="email" value="<%= user.email %>">
+<input type="hidden" class="disable" name="type" value="baseline">
+<input type="hidden" class="disable" name="name" value="<%= user.name %>">
+<input type="hidden" class="disable" name="uuid" value="<%= user.uuid %>">
+<label for="message" class="form-label">Message For <%= user.name %></label>
+<textarea class="form-control" name="message" id="message" rows="3"></textarea>
+</div>
+</div>
+<div class="modal-footer">
+<button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+<button type="submit" class="btn btn-primary">Send</button>
+</div>
+</form>
+</div>
+</div>
+</div>
+
+<h3 class="text-center">Core Values result</h3>
+<% if(user.baselines.length === 0){ %>
+    <h2 class="text-center">No data submitted</h2>
+  <% }else{ %>
+<div id="baseline-ningth-container container" style="display: block;">
+    <div id="baseline-ningth">
+    <% user.baselines[0].forEach((data,i) => { %>
+      <li class="baseline_word fs-3"><%=  i+ 1 %>.  <%= data %></li>
+     <% }) %> 
+    </div></div>
+<%}%>
+
+</div>
+<!-- baseline end -->
+
+<!-- NEcodes start -->
+<div class="tab-pane fade" id="v-pills-necodes" role="tabpanel" aria-labelledby="v-pills-necodes-tab">
+  <h2 class="text-center">My N Patterns/E Patterns</h2>
+  <!-- button start send -->
+                            <!-- Button trigger modal -->
+                            <button type="button" class="btn btn-lg btn-success mt-5" data-bs-toggle="modal" data-bs-target="#necodes">
+                              Send N Patterns/E Patterns
+                          </button>
+                          <a href="/client/necodes/<%= user.uuid %>" class="btn btn-success">link to test</a>
+
+<!-- Modal -->
+<div class="modal fade" id="necodes" tabindex="-1" aria-labelledby="necodesLabel" aria-hidden="true">
+<div class="modal-dialog">
+<div class="modal-content">
+<div class="modal-header">
+  <h5 class="modal-title" id="necodesLabel">Send N Patterns/E Patterns</h5>
+  <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+</div>
+<form action="/admin/clients/send-mail" method="post">
+<div class="modal-body">
+  <div class="mb-3">
+    <h3><%= user.name %></h3>
+    <input type="hidden" class="disable" name="email" value="<%= user.email %>">
+    <input type="hidden" class="disable" name="type" value="necodes">
+    <input type="hidden" class="disable" name="name" value="<%= user.name %>">
+    <input type="hidden" class="disable" name="uuid" value="<%= user.uuid %>">
+    <label for="message" class="form-label">Message For <%= user.name %></label>
+    <textarea class="form-control" name="message" id="message" rows="3"></textarea>
+  </div>
+</div>
+<div class="modal-footer">
+  <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+  <button type="submit" class="btn btn-primary">Send</button>
+</div>
+</form>
+</div>
+</div>
+</div>
+
+<% if(user.necodes.length === 0){ %>
+  <h1>No data available for N Patterns/E Patterns</h1>
+  <% }else{ %>
+    <table class="table fs-4">
+      <thead>
+        <tr>
+          <th scope="col">#</th>
+          <th scope="col">N Patterns</th>
+          <th scope="col">E Patterns</th>
+        </tr>
+      </thead>
+      <tbody>
+    <% user.necodes[0].forEach(data => { %>
+        <tr>
+          <th scope="row">#</th>
+          <td><%= data.n_code %></td>
+          <td><%= data.e_code %></td>
+        </tr>
+    <% }) %>
+      </tbody>
+    </table>
+  <%}%>
+  <!-- button end send -->    
+  <!-- model end -->
+</div>
+<!-- NEcodes end -->
+
+<!-- decision making wheel start -->
+<div class="tab-pane fade" id="v-pills-settings" role="tabpanel" aria-labelledby="v-pills-settings-tab">
+  <h2 class="text-center">My Decision Making Reckoner</h2>
+  <!-- button start send -->
+                            <!-- Button trigger modal -->
+                            <button type="button" class="btn btn-lg btn-success mt-5" data-bs-toggle="modal" data-bs-target="#decisionWheel">
+                              Send Decision Making Reckoner
+                          </button>
+                          
+
+<!-- Modal -->
+<div class="modal fade" id="decisionWheel" tabindex="-1" aria-labelledby="decisionWheelLabel" aria-hidden="true">
+<div class="modal-dialog">
+<div class="modal-content">
+<div class="modal-header">
+  <h5 class="modal-title" id="decisionWheelLabel">Send Decision Making Reckoner</h5>
+  <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+</div>
+<form action="/admin/clients/send-mail" method="post">
+<div class="modal-body">
+  <div class="mb-3">
+    <h3><%= user.name %></h3>
+    <input type="hidden" class="disable" name="email" value="<%= user.email %>">
+    <input type="hidden" class="disable" name="type" value="decisionmakingwheel">
+    <input type="hidden" class="disable" name="name" value="<%= user.name %>">
+    <input type="hidden" class="disable" name="uuid" value="<%= user.uuid %>">
+    <label for="message" class="form-label">Message For <%= user.name %></label>
+    <textarea class="form-control" name="message" id="message" rows="3"></textarea>
+  </div>
+</div>
+<div class="modal-footer">
+  <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+  <button type="submit" class="btn btn-primary">Send</button>
+</div>
+</form>
+</div>
+</div>
+</div>
+  <a href="/client/decisionmakingwheel/<%= user.uuid %>" class="btn btn-success">link to test</a>
+
+  <!-- result -->
+  <% if(user.decisionMakingWheel.length === 0){ %>
+    <h1 class="text-center">No data submitted</h1>
+  <% }else{ %>
+  <table class="table table-hover fs-4">
+    <thead>
+      <tr>
+        <th scope="col">#</th>
+        <th scope="col">Questions</th>
+        <th scope="col">Answers</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <th scope="row">1</th>
+        <td>What is the problem? </td>
+        <td><%= user.decisionMakingWheel[0].problem %></td>
+      </tr>
+      <tr>
+        <th scope="row">2</th>
+        <td>What are the choices you have? </td>
+        <td><%= user.decisionMakingWheel[0].choices %></td>
+      </tr>
+      <tr>
+        <th scope="row">3</th>
+        <td>What do you think the consequences will be for you and others who are involved?
+        </td>
+        <td><%= user.decisionMakingWheel[0].consequences %></td>
+      </tr>
+      <tr>
+        <th scope="row">4</th>
+        <td> What values do you need to consider?
+        </td>
+        <td><%= user.decisionMakingWheel[0].value %></td>
+      </tr>
+      <tr>
+        <th scope="row">5</th>
+        <td>How do you feel about the situation? </td>
+        <td><%= user.decisionMakingWheel[0].feelings %></td>
+      </tr>
+      <tr>
+        <th scope="row">6</th>
+        <td>Is there anything else you need to learn about it? </td>
+        <td><%= user.decisionMakingWheel[0].more_info %></td>
+      </tr>
+      <tr>
+        <th scope="row">7</th>
+        <td>Do you need to ask for help? Who will you ask? </td>
+        <td><%= user.decisionMakingWheel[0].help %></td>
+      </tr>
+      <tr>
+        <th scope="row">8</th>
+        <td>What is your decision? </td>
+        <td><%= user.decisionMakingWheel[0].decision %></td>
+      </tr>
+      <tr>
+        <th scope="row">9</th>
+        <td> Do you think you made the right decision? Why?</td>
+        <td><%= user.decisionMakingWheel[0].access_decision %></td>
+      </tr>
+    </tbody>
+  </table>
+  <% } %>
+</div>
+<!-- decision making wheel end -->
+
+<!-- decision OutCome start -->
+<div class="tab-pane fade" id="v-pills-outcomes" role="tabpanel" aria-labelledby="v-pills-outcomes-tab">
+  <h2 class="text-center">Define My Outcomes</h2>
+  <!-- button start send -->
+                            <!-- Button trigger modal -->
+                            <button type="button" class="btn btn-lg btn-success mt-5" data-bs-toggle="modal" data-bs-target="#outcomes">
+                              Send Outcomes
+                          </button>
+                          
+
+<!-- Modal -->
+<div class="modal fade" id="outcomes" tabindex="-1" aria-labelledby="outcomesLabel" aria-hidden="true">
+<div class="modal-dialog">
+<div class="modal-content">
+<div class="modal-header">
+  <h5 class="modal-title" id="outcomesLabel">Send N-codes</h5>
+  <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+</div>
+<form action="/admin/clients/send-mail" method="post">
+<div class="modal-body">
+  <div class="mb-3">
+    <h3><%= user.name %></h3>
+    <input type="hidden" class="disable" name="email" value="<%= user.email %>">
+    <input type="hidden" class="disable" name="type" value="defineoutcome">
+    <input type="hidden" class="disable" name="name" value="<%= user.name %>">
+    <input type="hidden" class="disable" name="uuid" value="<%= user.uuid %>">
+    <label for="message" class="form-label">Message For <%= user.name %></label>
+    <textarea class="form-control" name="message" id="message" rows="3"></textarea>
+  </div>
+</div>
+<div class="modal-footer">
+  <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+  <button type="submit" class="btn btn-primary">Send</button>
+</div>
+</form>
+</div>
+</div>
+</div>
+  <a href="/client/defineoutcome/<%= user.uuid %>" class="btn btn-success">link to test</a>
+
+  <!-- result -->
+  <div >
+    <% if(user.outcomes.length === 0) {%>
+      <h2 class="text-center">No data submitted</h2>
+      <%} else {%>
+        <table class="table table-hover fs-4" id="result_table">
+          <thead>
+            <tr>
+              <th scope="col">Actual Ranking</th>
+              <th scope="col">Potential Priorities</th>
+              <th scope="col">Predicted Ranking</th>
+              <th scope="col">Total Score</th>
+            </tr>
+          </thead>
+        </table>
+        <% } %> 
+</div>
+
+<script>
+    let res = '<%- JSON.stringify(user.outcomes[0]) %>'
+</script>
+<script src="/assets/js/defineoutcomeresult.js"></script>
+</div>
+<!-- decision OutCome end -->
+
+                            </div>
+                          </div>
+                        </div>
+                       </div>
+                      </div>
+                </div>
+            </div>
+            
+        </div>
+
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/3.5.1/chart.min.js" integrity="sha512-Wt1bJGtlnMtGP0dqNFH1xlkLBNpEodaiQ8ZN5JLA5wpc1sUlk/O5uuOMNgvzddzkpvZ9GLyYNa8w2s7rqiTk5Q==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+        <script src="/assets/js/putchart.js"></script>
+    </body>
+    </html>
